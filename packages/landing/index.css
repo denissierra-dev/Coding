@@ -1,0 +1,251 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-dark: #0f172a;
+    --secondary-dark: #1e293b;
+    --overlay-dark: rgba(30, 41, 59, 0.8);
+    --text-light: #f1f5f9;
+    --hover-dark: #334155;
+    --border-radius: 8px;
+    --transition-duration: 0.3s;
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-light);
+    background-color: var(--primary-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Navigation */
+.Nav-var {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    gap: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.navbar--hidden {
+    transform: translateY(-100%);
+}
+
+.Nav-var ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.Nav-var ul li a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: all var(--transition-duration);
+    border-radius: var(--border-radius);
+}
+
+.Nav-var ul li a:hover {
+    background-color: var(--hover-dark);
+}
+
+.nav-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    gap: 5px;
+}
+
+.nav-toggle span {
+    width: 30px;
+    height: 3px;
+    background: var(--text-light);
+    transition: all 0.3s;
+}
+
+.nav-links {
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    flex-direction: column;
+    background: var(--primary-dark);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    list-style: none;
+}
+
+.nav-links.nav-menu_visible {
+    left: 0;
+}
+
+@media (min-width: 768px) {
+    .nav-toggle {
+        display: none;
+        /* ESCONDE el botón de hamburguesa */
+    }
+
+    .nav-links {
+        position: static;
+        /* Vuelve a su posición normal */
+        display: flex;
+        /* Muestra los links uno al lado del otro */
+        flex-direction: row;
+        width: auto;
+        left: 0;
+    }
+
+    .nav-links li {
+        margin-left: 20px;
+    }
+}
+
+
+/* Header & Hero Section */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at center, var(--secondary-dark) 0%, var(--primary-dark) 100%);
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.btn-cta {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 40px;
+    background-color: var(--text-light);
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: all var(--transition-duration) ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-cta:hover {
+    transform: scale(1.05);
+    background-color: #cbd5e1;
+}
+
+/* Main Content */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.card {
+    background-color: var(--secondary-dark);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #334155;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    border-left: 4px solid var(--text-light);
+    padding-left: 15px;
+}
+
+.card ul {
+    list-style-type: none;
+}
+
+.card ul li::before {
+    content: "▹ ";
+    color: #38bdf8;
+    /* Un detalle de color para las listas */
+}
+
+/* Skills Section */
+.pictures {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.pictures .image {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Footer & Contact */
+footer {
+    background-color: #0b1120;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.botones-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.btn-contacto {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--secondary-dark);
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    border: 1px solid #334155;
+    transition: all var(--transition-duration);
+    font-weight: 500;
+}
+
+.btn-contacto:hover {
+    background-color: #2d3b55;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+/*  Nav-var aciva segun la sección*/
+
+.nav-link.active {
+    color: #ff4500;
+    /* O el color que prefieras */
+    border-bottom: 2px solid #ff4500;
+    font-weight: bold;
+}
